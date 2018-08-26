@@ -52,7 +52,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<finalName>springboot-cd-pipeline-travis</finalName>
+					<classifier>exec</classifier>
 				</configuration>
 			</plugin>
 
