@@ -1,0 +1,26 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: hello-world-service
+
+
+
+env:
+  global:
+  - secure: "jdK6icKbieAiYHJT2wFaqB7/O7UB8XDCdQFAKAfwmdyVzov6W2twWtH9lWB3O/+z9Kk/UdTtdZMgYi//YYgX+pSBaGNvExjSFzrAWt7xPOsIvJyh2oTSP52xeWQzVh+AK4pPae4PnPhZp6X9zbo/i5hwS6J0vbaT3vMVRObXHL2JATH+KkmQRbQ8FulBUSQeVKRC7ydRuVct+gDik10Uk7O2cA8Va/LfSlBPV3uuxfxlGVkCuiwSG/Ak9RH3eRqqGXvkxPmKpljY/KfnymMcRVxAE/oiO46ygatPwXHqx8I2QD29EQzqlD98Y5YJPvmVGzbA5EWKxNA6iWDKf3hDZyYjmNnHPX38PRbz6JsGGxMzuewoMdLCusBn6zsg3fU9ErElSNpRwsN8TswI7UeEERGV0VejZCRqa7C47pIP1xDCHm1pCB5hp+omhWeiFkmM3QID8QKA++VURmP7UxC8IJtSEs6QGs1nsh1A/Akd/yWba+j9VDxy8xYTcbglvVyFNhFT4Nh3RkZ2nqQVTSjC6LgUCoOt/ZS+gSiYi2GmKb6epiwDzfYcnkf7/ShcuunaFnkEAiOrm9A2iO0Ebj5zp8Qp6M4Bq1AHWKmRqgqApNCrJyAhuVXnvTng8GhXdgBWBnAO3mgBSCjgXtlmx9biTwd/HtNvwELPbR/crcoqnpE="
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+
+addons:
+  sonarcloud:
+    organization: "roland-jurd-github"
+    token:
+      secure: $SONAR_TOKEN
+
+
+script:
+- mvn sonar:sonar
+
